@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flashcard - Pinguim</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #bdeeff, #eafaff);
+            padding: 20px;
+        }
+
+        .flashcard {
+            width: 350px;
+            height: 520px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .card.virado {
+            transform: rotateY(180deg);
+        }
+
+        .frente,
+        .verso {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            border-radius: 25px;
+            backface-visibility: hidden;
+            background: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .frente img,
+        .verso img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .frente h1 {
+            font-size: 32px;
+            margin: 18px 0 8px;
+        }
+
+        .frente p {
+            color: #555;
+        }
+
+        .verso {
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+
+        .verso h2 {
+            color: #174b70;
+            margin: 12px 0 8px;
+        }
+
+        .verso p {
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .curiosidade {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 12px;
+            background: #e5f7ff;
+        }
+
+        .botao {
+            margin-top: 12px;
+            color: #174b70;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flashcard" onclick="virarCard()">
+
+        <div class="card" id="card">
+
+            <!-- FRENTE -->
+            <div class="frente">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Gentoo%20Penguin%20in%20Antarctica.jpg"
+                    alt="Pinguim na Antártida">
+
+                <h1>🐧 Pinguim</h1>
+
+                <p>
+                    Conheça um pouco mais sobre os pinguins!
+                </p>
+
+                <div class="botao">
+                    👆 Clique para virar
+                </div>
+
+            </div>
+
+            <!-- VERSO -->
+            <div class="verso">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Penguin%20in%20Antarctica%20jumping%20out%20 
